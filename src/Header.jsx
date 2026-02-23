@@ -2,12 +2,13 @@ import {MdOutlineDashboard,MdLogout}  from 'react-icons/md';
 import { useContext } from "react";
 import AppCxt from "./AppCtx.js";
 function Header(){
-    const {authenticated,setAuthenticated,setToken,setUnit,setError} = useContext(AppCxt);
+    const {authenticated,setAuthenticated,setToken,setUnit,setCategory,setError} = useContext(AppCxt);
     const logout = ()=>{
         setToken("");
         setAuthenticated(false);
         setUnit("Welcome");
         setError(null);
+        setCategory(null);
         
     }
     return (

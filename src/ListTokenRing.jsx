@@ -33,7 +33,7 @@ function ListTokenRing(){
                 <span className="basis-1/3">ADDRESS</span>
             </div>
             {tokenRing && tokenRing.map((r,i)=>{
-                    return  <RingNode name={r.name} address={r.address} ringToken={r.ringToken} key={i}/>
+                    return  <RingNode node={r} key={i}/>
                 })
             }
         </div>

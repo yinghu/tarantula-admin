@@ -15,6 +15,19 @@ function ToolBarItem(prop){
             type = 5;
         }else if (prop.action =='list_token_ring'){
             type = 6;
+        }else if (prop.action =='get_value'){
+            type = 7;
+        }else if (prop.action =='set_value'){
+            type = 8;
+        }
+        else if(prop.action =='list_product'){
+            type = 9;
+        }
+        else if(prop.action =='save_product'){
+            type = 10;
+        }
+        else if(prop.action =='key_token_ring'){
+            type = 11;
         }
         setCategory({type:type,target:{}});
     }
@@ -22,4 +35,4 @@ function ToolBarItem(prop){
         <Button name={prop.name} action={act}/>
     )
 }
-export default ToolBarItem
+export default ToolBarItem  
