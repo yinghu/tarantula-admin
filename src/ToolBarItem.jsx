@@ -17,7 +17,7 @@ function ToolBarItem(prop){
             type = 6;
         }else if (prop.action =='get_value'){
             type = 7;
-        }else if (prop.action =='set_value'){
+        }else if (prop.action =='reset_value'){
             type = 8;
         }
         else if(prop.action =='list_product'){

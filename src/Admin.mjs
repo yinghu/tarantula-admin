@@ -79,3 +79,11 @@ export function instance_list(token,category,callback){
         callback(clist)
     });   
 }
+
+export function token_ring(token,callback){
+    const headers = {'Authorization' : `Bearer ${token}`,'Content-Type':'application/x-www-form-urlencoded'};
+    const path = 'postoffice/presence/hashring';
+    get_json(path,headers,(clist)=>{
+        callback(clist)
+    });    
+}
