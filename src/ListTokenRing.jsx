@@ -3,16 +3,14 @@ import RingNode from "./RingNode";
 import {token_ring} from "./Admin.mjs";
 import AppCxt from "./AppCtx";
 
-function loadTokenRing(callback){
-    
-}
-
 function ListTokenRing(){
     const {token} = useContext(AppCxt);
     const [tokenRing,setTokenRing] = useState(null);
     useEffect(()=>{ 
         const iid = setInterval(()=>{ token_ring(token,data=>{
-            setTokenRing(data);})},5000);
+            console.log(data)
+            setTokenRing(data);
+        })},5000);
             return ()=>clearInterval(iid);
         },[]);
     return (

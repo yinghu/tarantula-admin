@@ -13,6 +13,7 @@ import SaveProduct from "./SaveProduct.jsx";
 import SetValue from "./SetValue.jsx";
 import GetValue from "./GetValue.jsx";
 import KeyTokenRing from "./KeyTokenRing.jsx";
+import CreateAccessKey from "./CreateAccessKey.jsx";
 function ConfigurationEditor(){
     const {category,setCategory} = useContext(AppCxt);
     const cls = ()=>{
@@ -32,6 +33,7 @@ function ConfigurationEditor(){
             {category.type ==9 && <ListProduct/>}
             {category.type ==10 && <SaveProduct/>}
             {category.type ==11 && <KeyTokenRing/>}
+            {category.type ==12 && <CreateAccessKey/>}
         </div>
     )
 }

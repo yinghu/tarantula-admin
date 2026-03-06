@@ -1,24 +1,17 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import Button from "./Button";
 import Input from "./Input";
+import {key_ring} from "./Admin.mjs";
+import AppCxt from "./AppCtx";
 
 function KeyTokenRing(){
-    
+    const {token} = useContext(AppCxt);
     const [key,setKey] = useState("");
     const [debug,setDebug] = useState("");
     const get = ()=>{
-        fetch(`http://192.168.1.11:8090/tarantula/presence/keyring/${key}`,
-            {method:"GET",headers:{Accept:"application/json",'Content-Type':"application/json"}})
-        .then(resp=>{
-            return resp.json();
-        })
-        .then(data=>{
+        key_ring(token,key,(data)=>{
             setDebug(JSON.stringify(data));
-            console.log(data);
-        })
-        .catch(err=>{
-            console.log(err);
-        });
+        })    
     };
 
     return (

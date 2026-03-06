@@ -10,7 +10,7 @@ function ToolBar(){
         <div>
             {
                 taskList && taskList[unit].Jobs.map((job,ix)=>{
-                    return <ToolBarItem key={ix} name={job.Name} action={job.Callback}/> 
+                    return <ToolBarItem key={ix} job={job}/> 
                 })
             }
         </div>

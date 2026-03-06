@@ -1,6 +1,7 @@
 const url ="http://192.168.1.11"
 
 export function get_json(path,headers,callback){
+   
     fetch(`${url}/${path}`,{
                 method:'GET',
                 headers:headers
@@ -81,8 +82,16 @@ export function instance_list(token,category,callback){
 }
 
 export function token_ring(token,callback){
-    const headers = {'Authorization' : `Bearer ${token}`,'Content-Type':'application/x-www-form-urlencoded'};
-    const path = 'postoffice/presence/hashring';
+    const headers = {'Authorization' : `Bearer ${token}`};
+    const path = 'admin/presence/hashring';
+    get_json(path,headers,(clist)=>{
+        callback(clist)
+    });    
+}
+
+export function key_ring(token,key,callback){
+    const headers = {'Authorization' : `Bearer ${token}`};
+    const path = `admin/presence/keyring/${key}`;
     get_json(path,headers,(clist)=>{
         callback(clist)
     });    
