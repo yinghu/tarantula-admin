@@ -9,6 +9,7 @@ import EditInstance from "./EditInstance";
 import ListTokenRing from "./ListTokenRing";
 import KeyTokenRing from "./KeyTokenRing.jsx";
 import CreateAccessKey from "./CreateAccessKey.jsx";
+import SendMessage from "./SendMessage.jsx";
 function ConfigurationEditor(){
     const {category,setCategory} = useContext(AppCxt);
     const cls = ()=>{
@@ -25,7 +26,7 @@ function ConfigurationEditor(){
             {category.type ==6 && <ListTokenRing/>}
             {category.type ==11 && <KeyTokenRing/>}
             {category.type ==12 && <CreateAccessKey/>}
-
+            {category.type ==13 && <SendMessage/>}
         </div>
     )
 }
