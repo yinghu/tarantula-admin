@@ -7,11 +7,6 @@ import CreateEnum from "./CreateEnum";
 import CreateInstance from "./CreateInstance";
 import EditInstance from "./EditInstance";
 import ListTokenRing from "./ListTokenRing";
-
-import ListProduct from "./ListProduct.jsx";
-import SaveProduct from "./SaveProduct.jsx";
-import SetValue from "./SetValue.jsx";
-import GetValue from "./GetValue.jsx";
 import KeyTokenRing from "./KeyTokenRing.jsx";
 import CreateAccessKey from "./CreateAccessKey.jsx";
 function ConfigurationEditor(){
@@ -28,12 +23,9 @@ function ConfigurationEditor(){
             {category.type ==4 && <CreateCategory/>}
             {category.type ==5 && <CreateEnum/>}
             {category.type ==6 && <ListTokenRing/>}
-            {category.type ==7 && <GetValue/>}
-            {category.type ==8 && <SetValue/>}
-            {category.type ==9 && <ListProduct/>}
-            {category.type ==10 && <SaveProduct/>}
             {category.type ==11 && <KeyTokenRing/>}
             {category.type ==12 && <CreateAccessKey/>}
+
         </div>
     )
 }
