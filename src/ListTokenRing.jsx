@@ -18,7 +18,6 @@ function ListTokenRing(){
     const [tokenRing,setTokenRing] = useState(null);
     useEffect(()=>{ 
         const iid = setInterval(()=>{ token_ring(token,data=>{
-            console.log(data)
             setTokenRing(data);
         })},5000);
             return ()=>clearInterval(iid);
@@ -28,7 +27,7 @@ function ListTokenRing(){
             <div className="flex flex-row p-2 border-b-2 border-red-500">
                 <span className="basis-1/4">NAME (virtual node)</span>
                 <span className="basis-1/4">RING TOKEN (hash)</span>
-                <span className="basis-1/4">ADDRESS</span>
+                <span className="basis-1/4">GOSSIP (memberlist)</span>
                 <span className="basis-1/4">RPC</span>
             </div>
             {tokenRing && tokenRing.map((r,i)=>{
