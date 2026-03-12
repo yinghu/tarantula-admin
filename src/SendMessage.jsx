@@ -12,12 +12,13 @@ function send_message(token,payload,callback){
 
 function SendMessage(){
     const {token} = useContext(AppCxt);
+    const [tag,setTag] = useState("");
     const [title,setTitle] = useState("");
     const [message,setMessage] = useState("");
     const [debug,setDebug] = useState("");
 
     const send =()=>{
-        let payload ={title:title,message:message}; 
+        let payload ={tag:tag,title:title,message:message}; 
         send_message(token,payload,(resp)=>{
             setDebug(JSON.stringify(resp));
         });
@@ -28,6 +29,7 @@ function SendMessage(){
             <fieldset className="border-2 border-gray-200">
                 <legend className="m-2">Message</legend>
                     <div className="m-4">
+                        <Input label="Tag" type="text" value={tag} changed={(e)=>{ setTag(e.target.value)}}/>
                         <Input label="Title" type="text" value={title} changed={(e)=>{ setTitle(e.target.value)}}/>
                         <Input label="Message" type="text" value={message} changed={(e)=>{ setMessage(e.target.value)}}/>
                         <hr className="border-2"/>
