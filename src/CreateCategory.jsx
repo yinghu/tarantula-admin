@@ -5,13 +5,19 @@ import {MdAdd,MdRemove}  from 'react-icons/md';
 import { useContext, useState } from "react";
 import AppCxt from "./AppCtx";
 import Select from "./Select";
-import { post_json } from "./Admin.mjs";
+import { post_json,get_json } from "./Admin.mjs";
 
 function save_category(token,payload,callback){
-     const headers = {'Authorization' : `Bearer ${token}`};
-        const path = 'admin/category/save';
-        post_json(path,headers,JSON.stringify(payload),callback);    
+    const headers = {'Authorization' : `Bearer ${token}`};
+    const path = 'admin/category/save';
+    post_json(path,headers,JSON.stringify(payload),callback);    
 }
+function load_categories(token,callback){
+    const headers = {'Authorization' : `Bearer ${token}`};
+    const path = 'admin/category/load/0/scope/2/commodity';
+    get_json(path,headers,callback);
+}
+
 
 function CreateCategory(){
     const {typeList,token,unit} = useContext(AppCxt);
@@ -29,12 +35,17 @@ function CreateCategory(){
     const [references,setReferences] = useState("");
 
     const typeChanged =(e)=>{
-        setReferences(null); 
-        if(e.target.value == 'list' || e.target.value == 'set' ){
-            var ref = [];
-            ref.push({Type:"Icon",Name:"Icon"});
-            ref.push({Type:"Chip",Name:"Chip"});
-            setReferences(ref);
+        setReferences(null);
+        console.log(e.target.value); 
+        if(e.target.value === 'list:undefined' || e.target.value === 'set:undefined' ){
+                load_categories(token,resp=>{
+                console.log(resp);
+                var ref = [];
+                resp.map(c=>{
+                    ref.push({Type:c.Name,Name:c.Name});
+                });
+                setReferences(ref);
+            });
         }
         setType(e.target.value);
         let ex = -1;
@@ -84,7 +95,7 @@ function CreateCategory(){
                 <legend className="m-2">Category:Properties</legend>
                 <div className="m-4">
                     <Input label="Name" type="text"  changed={e=>setProperty(e.target.value)}/>
-                    <Select changed={e=>{typeChanged(e)}} name="Type" title="Choose A Type" data={typeList.Commons}/>
+                    <Select changed={typeChanged} name="Type" title="Choose A Type" data={typeList.Commons}/>
                     <Checkbox label="Nullable" changed={e=>setNullable(e.target.checked)}/>
                     {references && <Select changed={referenceChanged} name="Reference" title="Choose A Reference" data={references}/>}
                 </div>
