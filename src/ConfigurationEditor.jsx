@@ -17,6 +17,7 @@ import ClusterGet from "./ClusterGet.jsx";
 import ClusterUpdate from "./ClusterUpdate.jsx";
 import ClusterReset from "./ClusterReset.jsx";
 import ClusterDelete from "./ClusterDelete.jsx";
+import ClusterPull from "./ClusterPull.jsx";
 function ConfigurationEditor(){
     const {category,setCategory} = useContext(AppCxt);
     const cls = ()=>{
@@ -42,6 +43,7 @@ function ConfigurationEditor(){
             {category.type ==102 && <ClusterUpdate/>}
             {category.type ==103 && <ClusterReset/>}
             {category.type ==104 && <ClusterDelete/>} 
+            {category.type ==105 && <ClusterPull/>}
         </div>
     )
 }

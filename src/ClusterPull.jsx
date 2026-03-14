@@ -4,14 +4,15 @@ import Button from "./Button";
 import { get_json } from "./Admin.mjs";
 import AppCxt from "./AppCtx";
 
-function ClusterDelete(){
+function ClusterPull(){
     const {token} = useContext(AppCxt);
-    const [key,setKey] = useState("");
+    const [ringToken,setRingToken] = useState("");
+    const [limit,setLimit] = useState(10);
     const [debug,setDebug] = useState("");
 
-    const dlt = ()=>{
+    const cgt = ()=>{
         const headers = {'Authorization' : `Bearer ${token}`};
-        get_json(`admin/cluster/delete/${key}`,headers,resp=>{
+        get_json(`admin/cluster/pull/${ringToken}/${limit}`,headers,resp=>{
             setDebug(JSON.stringify(resp));        
         });
     };
@@ -20,14 +21,17 @@ function ClusterDelete(){
             <p>{debug}</p>
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <div className="mb-4">
-                    <Input label="Key :" changed={e=>setKey(e.target.value)} type="text" value={key} />
+                    <Input label="RingToken :" changed={e=>setRingToken(e.target.value)} type="text" value={ringToken} />
+                </div>
+                <div className="mb-4">
+                    <Input label="Limit :" changed={e=>setLimit(e.target.value)} type="number" value={limit} />
                 </div>
                 <div className="flex items-center justify-between">
-                    <Button name='Delete' action={dlt}/>
+                    <Button name='Pull' action={cgt}/>
                 </div>
             </form>
         </div>
     )
 }
 
-export default ClusterDelete
+export default ClusterPull
