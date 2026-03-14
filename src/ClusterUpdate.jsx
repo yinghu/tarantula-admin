@@ -13,7 +13,7 @@ function ClusterUpdate(){
     const [type,setType] = useState("");
     const [balance,setBalance] = useState(0);
     const [systemId,setSystemId] = useState("");
-    
+    const [revision,setRevision] = useState("");
     const [debug,setDebug] = useState("");
     const lod = ()=>{
         const headers = {'Authorization' : `Bearer ${token}`};
@@ -22,11 +22,11 @@ function ClusterUpdate(){
             setType(resp.type);
             setBalance(resp.balance);
             setSystemId(resp.systemId);
-            //setMutable(resp.mutable);
+            setRevision(resp.rev);
         });
     };
     const upt = ()=>{
-        let co ={key:key,type:type,balance:balance,systemId:systemId};
+        let co ={key:key,type:type,balance:balance,systemId:systemId,rev:revision};
         const headers = {'Authorization' : `Bearer ${token}`};
         post_json("inventory/cluster/update",headers,JSON.stringify(co),resp=>{
             setDebug(JSON.stringify(resp));        
@@ -47,6 +47,9 @@ function ClusterUpdate(){
                 </div>
                 <div className="mb-6">
                     <Input label="SystemId :" changed={e=>setSystemId(e.target.value)} type="text" value={systemId}/>
+                </div>
+                <div className="mb-6">
+                    <Input label="Revision :" changed={e=>setRevision(e.target.value)} type="text" value={revision}/>
                 </div>
                 <div className="flex items-left justify-between">
                     <Button name='Load' action={lod}/>
