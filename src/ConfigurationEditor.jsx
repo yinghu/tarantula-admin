@@ -12,6 +12,11 @@ import CreateAccessKey from "./CreateAccessKey.jsx";
 import SendMessage from "./SendMessage.jsx";
 import QueryMessage from "./QueryMessage.jsx";
 import Register from "./Register.jsx";
+import ClusterCreate from "./ClusterCreate.jsx";
+import ClusterGet from "./ClusterGet.jsx";
+import ClusterUpdate from "./ClusterUpdate.jsx";
+import ClusterReset from "./ClusterReset.jsx";
+import ClusterDelete from "./ClusterDelete.jsx";
 function ConfigurationEditor(){
     const {category,setCategory} = useContext(AppCxt);
     const cls = ()=>{
@@ -32,6 +37,11 @@ function ConfigurationEditor(){
             {category.type ==14 && <QueryMessage/>}
             {category.type ==15 && <QueryMessage/>}
             {category.type ==16 && <Register/>}
+            {category.type ==100 && <ClusterCreate/>}
+            {category.type ==101 && <ClusterGet/>}
+            {category.type ==102 && <ClusterUpdate/>}
+            {category.type ==103 && <ClusterReset/>}
+            {category.type ==104 && <ClusterDelete/>} 
         </div>
     )
 }
