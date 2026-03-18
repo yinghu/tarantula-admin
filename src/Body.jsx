@@ -39,9 +39,7 @@ function Body(){
                     <span className="absolute bottom-4 left-4 text-[24px] text-red-500"><MdHandyman/></span>
                     <span className="absolute bottom-4 text-[24px] right-4">{unit}</span>
                 </div>
-                <div className="m-2 justify-items-left">
-                    {error && <ErrorBar info={error}/>}
-                </div> 
+                <div className="m-4 justify-items-center">{error && <ErrorBar info={error}/>}</div> 
                 <div className="bg-white m-8 justify-items-center">
                     {!authenticated && <Login/>}     
                 </div>
