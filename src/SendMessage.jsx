@@ -12,13 +12,15 @@ function send_message(token,payload,callback){
 
 function SendMessage(){
     const {token} = useContext(AppCxt);
+    const [nodeId,setNodeId] = useState("");
     const [tag,setTag] = useState("");
+    const [topic,setTopic] = useState("");
     const [title,setTitle] = useState("");
     const [message,setMessage] = useState("");
     const [debug,setDebug] = useState("");
 
     const send =()=>{
-        let payload ={tag:tag,title:title,message:message}; 
+        let payload ={nodeId:nodeId,tag:tag,topic:topic,title:title,message:message}; 
         send_message(token,payload,(resp)=>{
             setDebug(JSON.stringify(resp));
         });
@@ -27,9 +29,11 @@ function SendMessage(){
         <div>
             <p>{debug}</p>
             <fieldset className="border-2 border-gray-200">
-                <legend className="m-2">Message</legend>
+                <legend className="m-2">Event</legend>
                     <div className="m-4">
+                        <Input label="NodeId" type="text" value={nodeId} changed={(e)=>{ setNodeId(e.target.value)}}/>
                         <Input label="Tag" type="text" value={tag} changed={(e)=>{ setTag(e.target.value)}}/>
+                        <Input label="Topic" type="text" value={topic} changed={(e)=>{ setTopic(e.target.value)}}/>
                         <Input label="Title" type="text" value={title} changed={(e)=>{ setTitle(e.target.value)}}/>
                         <Input label="Message" type="text" value={message} changed={(e)=>{ setMessage(e.target.value)}}/>
                         <hr className="border-2"/>
