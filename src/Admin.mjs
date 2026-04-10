@@ -37,7 +37,7 @@ export function post_json(path,headers,payload,callback){
 }
 
 export function login(u,p,callback){
-    const payload = JSON.stringify({login:u,password:p}); 
+    const payload = JSON.stringify({name:u,password:p}); 
     post_json("admin/login",{},payload,callback);
 }
 

@@ -10,7 +10,9 @@ import ListTokenRing from "./ListTokenRing";
 import KeyTokenRing from "./KeyTokenRing.jsx";
 import CreateAccessKey from "./CreateAccessKey.jsx";
 import SendMessage from "./SendMessage.jsx";
-import QueryMessage from "./QueryMessage.jsx";
+import QueryTopic from "./QueryTopic.jsx";
+import QueryObject from "./QueryObject.jsx";
+
 import Register from "./Register.jsx";
 import ClusterCreate from "./ClusterCreate.jsx";
 import ClusterGet from "./ClusterGet.jsx";
@@ -35,8 +37,8 @@ function ConfigurationEditor(){
             {category.type ==11 && <KeyTokenRing/>}
             {category.type ==12 && <CreateAccessKey/>}
             {category.type ==13 && <SendMessage/>}
-            {category.type ==14 && <QueryMessage/>}
-            {category.type ==15 && <QueryMessage/>}
+            {category.type ==14 && <QueryTopic/>}
+            {category.type ==15 && <QueryObject/>}
             {category.type ==16 && <Register/>}
             {category.type ==100 && <ClusterCreate/>}
             {category.type ==101 && <ClusterGet/>}

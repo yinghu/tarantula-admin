@@ -5,10 +5,11 @@ import AppCxt from "./AppCtx";
 function RingNode({node}){
     return (
         <div className="flex flex-row p-2 border-b border-red-500">
-            <span className="basis-1/4">{node.name}</span>
-            <span className="basis-1/4">{node.ringToken}</span>
-            <span className="basis-1/4">{node.address}</span>
-            <span className="basis-1/4">{node.rpc}</span>
+            <span className="basis-1/5">{node.name}</span>
+            <span className="basis-1/5">{node.ringToken}</span>
+            <span className="basis-1/5">{node.address}</span>
+            <span className="basis-1/5">{node.rpc}</span>
+            <span className="basis-1/5">{node.meta}</span>
         </div>
     )
 }
@@ -25,10 +26,11 @@ function ListTokenRing(){
     return (
         <div>
             <div className="flex flex-row p-2 border-b-2 border-red-500">
-                <span className="basis-1/4">NAME (virtual node)</span>
-                <span className="basis-1/4">RING TOKEN (hash)</span>
-                <span className="basis-1/4">GOSSIP (memberlist)</span>
-                <span className="basis-1/4">RPC</span>
+                <span className="basis-1/5">NAME (virtual node)</span>
+                <span className="basis-1/5">RING TOKEN (hash)</span>
+                <span className="basis-1/5">GOSSIP (memberlist)</span>
+                <span className="basis-1/5">RPC</span>
+                <span className="basis-1/5">META</span>
             </div>
             {tokenRing && tokenRing.map((r,i)=>{
                     return  <RingNode node={r} key={i}/>

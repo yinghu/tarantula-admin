@@ -4,13 +4,13 @@ import Button from "./Button";
 import AppCxt from "./AppCtx";
 import { post_json } from "./Admin.mjs";
 
-function query_message(topic,payload,token,callback){
+function query_object(topic,payload,token,callback){
     const headers = {'Authorization' : `Bearer ${token}`};
-    const path = `admin/cs/query/${topic}`;
+    const path = `admin/cs/query/object/${topic}`;
     post_json(path,headers,JSON.stringify(payload),callback);    
 }
 
-function QueryMessage(){
+function QueryObject(){
     const {token} = useContext(AppCxt);
     const [topic,setTopic] = useState("");
     const [tag,setTag] = useState("msg");
@@ -22,7 +22,7 @@ function QueryMessage(){
     
     const query =()=>{
         let exp={Tag:tag,StartTime: new Date(startTime).toISOString(),EndTime:new Date(endTime).toISOString(),Limit:limit/1,Offset:offset/1};
-        query_message(topic,exp,token,(resp)=>{
+        query_object(topic,exp,token,(resp)=>{
             setDebug(JSON.stringify(resp));
         });
     };
@@ -30,7 +30,7 @@ function QueryMessage(){
         <div>
             <p>{debug}</p>
             <fieldset className="border-2 border-gray-200">
-                <legend className="m-2">Message</legend>
+                <legend className="m-2">Object</legend>
                     <div className="m-4">
                         <Input label="Topic" type="text" value={topic} changed={(e)=>{ setTopic(e.target.value)}}/>
                         <Input label="Tag" type="text" value={tag} changed={(e)=>{ setTag(e.target.value)}}/>
@@ -46,4 +46,4 @@ function QueryMessage(){
     )
 }
 
-export default QueryMessage
+export default QueryObject

@@ -6,7 +6,7 @@ function Register(){
     const [user,setUser] = useState("");
     const [password,setPassword] = useState("");
     const reg = ()=>{
-        let login ={login:user,password:password};
+        let login ={name:user,password:password};
         console.log(login);
         post_json("presence/register",{},JSON.stringify(login),resp=>{
             console.log(resp);
