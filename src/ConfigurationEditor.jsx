@@ -22,13 +22,16 @@ import ClusterDelete from "./ClusterDelete.jsx";
 import SubscriptionList from "./SubscriptionList.jsx";
 
 function ConfigurationEditor(){
-    const {category,setCategory} = useContext(AppCxt);
+    const {category,setCategory,header} = useContext(AppCxt);
     const cls = ()=>{
         setCategory(null);       
     }
     return (
         <div>
-            <div className="relative h-8 bg-sky-500"><MdClose className="absolute bottom-1 right-2 text-[24px] text-red-500" onClick={cls}/></div>
+            <div className="relative h-8 bg-sky-500">
+                <span className="absolute bottom-1 left-2 text-[16px] text-white">{header}</span>
+                <MdClose className="absolute bottom-1 right-2 text-[24px] text-red-500" onClick={cls}/>
+            </div>
             {category.type ==1 && <CreateInstance/>}     
             {category.type ==2 && <EditInstance/>}    
             {category.type ==3 && <EditCategory/>}

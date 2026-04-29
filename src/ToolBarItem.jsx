@@ -4,10 +4,11 @@ import AppCxt from "./AppCtx";
 
 
 function ToolBarItem({job}){
-    const {setCategory} = useContext(AppCxt);
+    const {setCategory,setHeader} = useContext(AppCxt);
 
     const act =()=>{
         setCategory({type:job.Type,target:{}});
+        setHeader(job.Name);
     }
     return (
         <Button name={job.Name} action={act}/>

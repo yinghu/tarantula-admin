@@ -16,12 +16,14 @@ function Tarantula(){
     const [category,setCategory] = useState(null);
     const [instance,setInstance] = useState(null);
     const [error,setError] = useState(null);
-    const [categoryAndInstanceBar,setCategoryAndInstanceBar] = useState(true)
+    const [categoryAndInstanceBar,setCategoryAndInstanceBar] = useState(true);
+    const [header,setHeader] = useState(null);
     
         
     const ctx = {authenticated,token,unit,taskList,typeList,env,categoryList,
         category,instance,setToken,setAuthenticated,setUnit,setTaskList,
-        setTypeList,setEnv,setCategoryList,setCategory,setInstance,error,setError,categoryAndInstanceBar,setCategoryAndInstanceBar};
+        setTypeList,setEnv,setCategoryList,setCategory,setInstance,error,setError,
+        categoryAndInstanceBar,setCategoryAndInstanceBar,header,setHeader};
     return (
         <AppCxt value={ctx}>  
             <Header/>
