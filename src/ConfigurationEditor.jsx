@@ -19,7 +19,8 @@ import ClusterGet from "./ClusterGet.jsx";
 import ClusterUpdate from "./ClusterUpdate.jsx";
 import ClusterReset from "./ClusterReset.jsx";
 import ClusterDelete from "./ClusterDelete.jsx";
-import ClusterPull from "./ClusterPull.jsx";
+import SubscriptionList from "./SubscriptionList.jsx";
+
 function ConfigurationEditor(){
     const {category,setCategory} = useContext(AppCxt);
     const cls = ()=>{
@@ -33,19 +34,21 @@ function ConfigurationEditor(){
             {category.type ==3 && <EditCategory/>}
             {category.type ==4 && <CreateCategory/>}
             {category.type ==5 && <CreateEnum/>}
-            {category.type ==6 && <ListTokenRing/>}
-            {category.type ==11 && <KeyTokenRing/>}
             {category.type ==12 && <CreateAccessKey/>}
             {category.type ==13 && <SendMessage/>}
             {category.type ==14 && <QueryTopic/>}
             {category.type ==15 && <QueryObject/>}
             {category.type ==16 && <Register/>}
-            {category.type ==100 && <ClusterCreate/>}
-            {category.type ==101 && <ClusterGet/>}
-            {category.type ==102 && <ClusterUpdate/>}
-            {category.type ==103 && <ClusterReset/>}
-            {category.type ==104 && <ClusterDelete/>} 
-            {category.type ==105 && <ClusterPull/>}
+
+            {category.type ==100 && <ListTokenRing/>}
+            {category.type ==101 && <KeyTokenRing/>}
+            {category.type ==102 && <SubscriptionList name="topic"/>}
+            {category.type ==103 && <SubscriptionList name="task"/>}
+            {category.type ==104 && <ClusterGet/>}
+            {category.type ==105 && <ClusterReset/>}
+            {category.type ==106 && <ClusterCreate/>}
+            {category.type ==107 && <ClusterUpdate/>}
+            {category.type ==108 && <ClusterDelete/>} 
         </div>
     )
 }

@@ -17,19 +17,19 @@ function Body(){
         <div className="flex flex-row h-screen">
             <div className="basis-1/4 shrink-0 bg-sky-200">
                 {authenticated && <div className="flex flex-col scroll-auto">
-                        <AdminItem name="Asset"/>
-                        <AdminItem name="Component"/>
-                        <AdminItem name="Commodity"/>
-                        <AdminItem name="Item"/>
-                        <AdminItem name="Store"/>
-                        <AdminItem name="Tournament"/>
-                        <AdminItem name="Resource"/>
-                        <AdminItem name="Acheivement"/>
-                        <AdminItem name="DailyLogin"/>
-                        <AdminItem name="Cloud"/>
-                        <AdminItem name="AdminTool"/>
-                        <AdminItem name="CSTool"/>
-                        <AdminItem name="APITool"/>
+                        <AdminItem name="Asset" listing="true"/>
+                        <AdminItem name="Component" listing="true"/>
+                        <AdminItem name="Commodity" listing="true"/>
+                        <AdminItem name="Item" listing="true"/>
+                        <AdminItem name="Store" listing="true"/>
+                        <AdminItem name="Tournament" listing="true"/>
+                        <AdminItem name="Resource" listing="true"/>
+                        <AdminItem name="Achievement" listing="true"/>
+                        <AdminItem name="DailyLogin" listing="true"/>
+                        <AdminItem name="Cloud" listing="false"/>
+                        <AdminItem name="AdminTool" listing="false"/>
+                        <AdminItem name="CSTool" listing="false"/>
+                        <AdminItem name="APITool" listing="false"/>
                     </div>
                 }
             </div>
