@@ -15,7 +15,7 @@ function Body(){
     
     return (
         <div className="flex flex-row h-screen">
-            <div className="basis-1/4 shrink-0 bg-sky-200">
+            <div className="basis-1/4 shrink-0 bg-sky-400">
                 {authenticated && <div className="flex flex-col scroll-auto">
                         <AdminItem name="Asset" listing="true"/>
                         <AdminItem name="Component" listing="true"/>
@@ -34,7 +34,7 @@ function Body(){
                 }
             </div>
             
-            <div className="basis-3/4 bg-white">
+            <div className="basis-3/4">
                 <div className="relative h-16 border-b-2 bg-sky-400">
                     <span className="absolute bottom-4 left-4 text-[24px] text-red-500"><MdHandyman/></span>
                     <span className="absolute bottom-4 text-[24px] right-4">{unit}</span>
