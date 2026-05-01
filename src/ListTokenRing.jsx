@@ -25,7 +25,7 @@ function ListTokenRing(){
         },[]);
     return (
         <div>
-            <div className="flex flex-row p-2 border-b-2 border-red-500">
+            <div className="flex flex-row p-2 border-b border-red-500">
                 <span className="basis-1/5">NAME (virtual node)</span>
                 <span className="basis-1/5">RING TOKEN (hash)</span>
                 <span className="basis-1/5">GOSSIP (memberlist)</span>

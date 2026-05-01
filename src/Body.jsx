@@ -43,7 +43,7 @@ function Body(){
                 <div className="bg-white m-8 justify-items-center">
                     {!authenticated && <Login/>}     
                 </div>
-                <div className="m-2 justify-items-left">
+                <div className="m-2 justify-items-left border-b border-red-500">
                     {authenticated && <ToolBar/>}
                 </div>
                 <div className="m-2 justify-items-left">
