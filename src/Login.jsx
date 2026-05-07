@@ -23,7 +23,7 @@ function Login(){
             }
             setError(null);
             setToken(data.token);
-            setUnit("Asset");
+            setUnit("Cloud");
             setAuthenticated(true);
             task_list(data.token,(tlist)=>{
                 let tps = {};
