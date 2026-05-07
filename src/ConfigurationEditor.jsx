@@ -32,16 +32,12 @@ function ConfigurationEditor(){
                 <span className="absolute bottom-1 left-2 text-[16px] text-white">{header}</span>
                 <MdClose className="absolute bottom-1 right-2 text-[24px] text-red-500" onClick={cls}/>
             </div>
-            {category.type ==1 && <CreateInstance/>}     
-            {category.type ==2 && <EditInstance/>}    
-            {category.type ==3 && <EditCategory/>}
-            {category.type ==4 && <CreateCategory/>}
-            {category.type ==5 && <CreateEnum/>}
-            {category.type ==12 && <CreateAccessKey/>}
-            {category.type ==13 && <SendMessage/>}
-            {category.type ==14 && <QueryTopic/>}
-            {category.type ==15 && <QueryObject/>}
-            {category.type ==16 && <Register/>}
+            {category.type ==200 && <CreateAccessKey/>}
+            {category.type ==300 && <SendMessage/>}
+            {category.type ==301 && <QueryTopic/>}
+            {category.type ==302 && <QueryObject/>}
+            
+            {category.type ==500 && <Register/>}
 
             {category.type ==100 && <ListTokenRing/>}
             {category.type ==101 && <KeyTokenRing/>}

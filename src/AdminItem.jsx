@@ -1,7 +1,6 @@
 import {MdKeyboardDoubleArrowRight}  from 'react-icons/md';
 import { useContext} from "react";
 import AppCxt from "./AppCtx.js";
-import {category_list} from "./Admin.mjs";
 
 function AdminItem(prop){
     const {token,unit,setUnit,taskList,setCategoryList,setCategoryAndInstanceBar,setCategory} = useContext(AppCxt);
@@ -9,10 +8,6 @@ function AdminItem(prop){
         setCategoryAndInstanceBar(prop.listing==='true');
         setUnit(prop.name);
         setCategory(null);
-        let tsk = taskList[prop.name];
-        category_list(token,tsk.Name,tsk.ScopeSequence,clist=>{
-            setCategoryList(clist);
-        });
     };
     return (
         <div onClick = {onUnit} className="relative w-full h-16 bg-green-500 border-b-2 border-red-500">
