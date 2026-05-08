@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import {login,task_list,type_list,env} from "./Admin.mjs";
+import {login,task_list} from "./Admin.mjs";
 import AppCxt from "./AppCtx";
 import Button from "./Button";
 import Input from "./Input";
@@ -7,7 +7,7 @@ import Input from "./Input";
 function Login(){
     const [name,setName] = useState("");
     const [password,setPassword] = useState("");
-    const {setToken,setAuthenticated,setUnit,setTaskList,setTypeList,setEnv,setError} = useContext(AppCxt);
+    const {setToken,setAuthenticated,setUnit,setTaskList,setError} = useContext(AppCxt);
     const handleName = (e)=>{
         setName(e.target.value);
     };
@@ -31,16 +31,6 @@ function Login(){
                     tps[t.Name]=t;
                 });
                 setTaskList(tps);                
-            });
-            type_list(data.token,(tlist)=>{
-                tlist.Commons =[]; 
-                for(const [k,v] of Object.entries(tlist.Types)){
-                    tlist.Commons.push(v);                        
-                }
-                setTypeList(tlist);                
-            });
-            env(data.token,env=>{
-                setEnv(env);
             });
         });
     };

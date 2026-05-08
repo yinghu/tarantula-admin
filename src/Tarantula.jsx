@@ -10,8 +10,6 @@ function Tarantula(){
     const [authenticated,setAuthenticated] = useState(false);
     const [unit,setUnit] = useState("Welcome");
     const [taskList,setTaskList] = useState(null);
-    const [typeList,setTypeList] = useState(null);
-    const [env,setEnv] = useState(null);
     const [categoryList,setCategoryList] = useState([]);
     const [category,setCategory] = useState(null);
     const [instance,setInstance] = useState(null);
@@ -20,9 +18,9 @@ function Tarantula(){
     const [header,setHeader] = useState(null);
     
         
-    const ctx = {authenticated,token,unit,taskList,typeList,env,categoryList,
+    const ctx = {authenticated,token,unit,taskList,categoryList,
         category,instance,setToken,setAuthenticated,setUnit,setTaskList,
-        setTypeList,setEnv,setCategoryList,setCategory,setInstance,error,setError,
+        setCategoryList,setCategory,setInstance,error,setError,
         categoryAndInstanceBar,setCategoryAndInstanceBar,header,setHeader};
     return (
         <AppCxt value={ctx}>  

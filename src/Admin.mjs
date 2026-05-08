@@ -49,30 +49,6 @@ export function task_list(token,callback){
     });
 }
 
-export function type_list(token,callback){
-    const headers = {'Authorization' : `Bearer ${token}`};
-    const path = "admin/webprotected/type.list.json"; 
-    get_json(path,headers,(tlist)=>{
-        callback(tlist)
-    });
-}
-
-export function env(token,callback){
-    const headers = {'Authorization' : `Bearer ${token}`};
-    const path = "admin/env"; 
-    get_json(path,headers,(tlist)=>{
-        callback(tlist)
-    });
-}
-
-export function category_list(token,category,scope,callback){
-    const headers = {'Authorization' : `Bearer ${token}`};
-    const path = `admin/category/load/0/scope/${scope}/${category}`;
-    get_json(path,headers,(clist)=>{
-        callback(clist)
-    });   
-}
-
 export function instance_list(token,category,callback){
     const headers = {'Authorization' : `Bearer ${token}`};
     const path = `admin/config/load/0/${category}/10`;

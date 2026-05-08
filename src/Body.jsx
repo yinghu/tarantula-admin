@@ -20,8 +20,6 @@ function Body(){
 
                         <AdminItem name="Cloud" listing="false"/>
                         <AdminItem name="AdminTool" listing="false"/>
-                        <AdminItem name="CSTool" listing="false"/>
-                        <AdminItem name="APITool" listing="false"/>
                     </div>
                 }
             </div>
